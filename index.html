@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eef5fb" />
+    <title>Skyline — Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Skyline home"><span class="brand-mark" aria-hidden="true">◒</span> skyline</a>
+        <div class="live-label"><span class="live-dot"></span> LIVE WEATHER</div>
+      </header>
+
+      <section class="welcome" aria-labelledby="page-title">
+        <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+        <h1 id="page-title">A little more in tune<br />with <span>the weather.</span></h1>
+        <p class="intro">Find the forecast for wherever you are, or wherever you’re going.</p>
+        <form class="search-form" id="location-form" novalidate>
+          <label class="sr-only" for="location-input">Enter a city or location</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="location-input" name="location" type="text" placeholder="Enter a city or location" autocomplete="off" maxlength="80" />
+          <button class="search-button" type="submit">Get forecast <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="form-message" id="form-message" role="status" aria-live="polite">Try a city like Lisbon, Tokyo, or New York</p>
+      </section>
+
+      <section class="weather-content" id="weather-content" hidden aria-live="polite">
+        <div class="weather-heading">
+          <div><p class="eyebrow">WEATHER OUTLOOK</p><h2 id="place-name">—</h2><p class="current-date" id="current-date"></p></div>
+          <button class="refresh-button" id="refresh-button" type="button"><span aria-hidden="true">↻</span> Refresh</button>
+        </div>
+        <article class="current-card">
+          <div class="current-main"><div class="condition-icon" id="condition-icon" aria-hidden="true">☀</div><div><p class="condition-label" id="condition-label">—</p><p class="feels-like" id="feels-like">Local time —</p></div></div>
+          <div class="temperature" id="temperature">—<sup>°</sup></div>
+          <div class="weather-stats">
+            <div class="stat"><span class="stat-icon wind-icon" aria-hidden="true">≋</span><div><span class="stat-label">Wind</span><strong id="wind-speed">—</strong></div></div>
+            <div class="stat"><span class="stat-icon rain-icon" aria-hidden="true">⌁</span><div><span class="stat-label">Chance of rain</span><strong id="rain-chance">—</strong></div></div>
+            <div class="stat"><span class="stat-icon highlow-icon" aria-hidden="true">↗</span><div><span class="stat-label">Today’s range</span><strong id="day-range">—</strong></div></div>
+          </div>
+        </article>
+
+        <section class="hourly-section" aria-labelledby="hourly-title">
+          <div class="section-heading"><div><p class="eyebrow">THE NEXT 48 HOURS</p><h3 id="hourly-title">Hourly forecast</h3></div>
+            <div class="range-switch" role="group" aria-label="Select hourly forecast period"><button type="button" class="range-button active" data-range="previous">Previous 24h</button><button type="button" class="range-button" data-range="next">Next 24h</button></div>
+          </div>
+          <div class="hourly-list" id="hourly-list" aria-label="Hourly weather"></div>
+        </section>
+      </section>
+      <footer><span>Made for the moments between the forecast.</span><span>Weather data by Visual Crossing</span></footer>
+    </main>
+  </body>
+</html>
